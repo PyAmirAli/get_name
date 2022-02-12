@@ -302,7 +302,8 @@ print("""Enter the country code
 for example  IRN--> Iran
 """)
 print("")
-print("coded MMD telegram me @Try_excep_t")
+print("coded by Amir Ali telegram me @Try_excep_t")
+print("")
 try:
     code = input("enter code-->")
     site = requests.get('https://top-names.info/names.php?S=M&P='+code)
