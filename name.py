@@ -21,7 +21,6 @@ print ("""
 	AUT--> Austria
 	AZE--> Azerbaijan
 	AZR--> Azores
-
 	BAH--> Bahamas
 	BHR--> Bahrain
 	BNG--> Bangladesh
@@ -41,7 +40,6 @@ print ("""
 	BFS--> Burkina Faso
 	MMR--> Burma (Myanmar)
 	BDI--> Burundi
-
 	CBG--> Cambodia
 	CAM--> Cameroon
 	CAN--> Canada
@@ -67,13 +65,11 @@ print ("""
 	CUB--> Cuba
 	CYP--> Cyprus
 	TCH--> Czech Rep.
-
 	DNK--> Denmark
 	FRO--> Denmark  Faroe Islands
 	DJI--> Djibouti
 	DMA--> Dominica
 	DOM--> Dominican Rep.
-
 	TIM--> East Timor
 	ECU--> Ecuador
 	EGY--> Egypt
@@ -81,7 +77,6 @@ print ("""
 	ERI--> Eritrea
 	EST--> Estonia
 	ETH--> Ethiopia
-
 	FLK--> Falkland Islands
 	FRO--> Faroe Islands
 	FIJ--> Fiji
@@ -95,7 +90,6 @@ print ("""
 	PFR--> France  French Polynesia
 	REU--> France  Reunion
 	SPM--> France  St-Pierre & Miquelon
-
 	GAB--> Gabon
 	GAM--> Gambia
 	GEO--> Georgia
@@ -116,13 +110,11 @@ print ("""
 	GNB--> Guinea-Bissau
 	GNE--> Guinea (Equat.)
 	GUY--> Guyana
-
 	HAI--> Haiti
 	HAW--> Hawaii Islands
 	HND--> Honduras
 	HKG--> Hong Kong
 	HUN--> Hungary
-
 	ISL--> Iceland
 	IND--> India
 	IDN--> Indonesia
@@ -133,19 +125,16 @@ print ("""
 	ISR--> Israel
 	ITA--> Italy
 	CIV--> Ivory Coast
-
 	JAM--> Jamaica
 	JAP--> Japan
 	JER--> Jersey & Guernsey
 	JOR--> Jordan
-
 	KAZ--> Kazakhstan
 	KEN--> Kenya
 	KIR--> Kiribati
 	KOR--> Korea
 	KUW--> Kuwait
 	KGZ--> Kyrgyzstan
-
 	LAO--> Laos
 	LAT--> Latvia
 	LIB--> Lebanon
@@ -155,7 +144,6 @@ print ("""
 	LIE--> Liechtenstein
 	LIT--> Lithuania
 	LUX--> Luxembourg
-
 	MAC--> Macau
 	MKD--> Macedonia
 	MAD--> Madagascar
@@ -181,7 +169,6 @@ print ("""
 	MAR--> Morocco
 	MOZ--> Mozambique
 	MMR--> Myanmar
-
 	NAM--> Namibia
 	NRU--> Nauru
 	NEP--> Nepal
@@ -196,9 +183,7 @@ print ("""
 	NFK--> Norfolk
 	MRN--> Northern Mariana Isl.
 	NOR--> Norway
-
 	OMA--> Oman
-
 	PAK--> Pakistan
 	PLW--> Palau
 	PAL--> Palestine
@@ -214,14 +199,11 @@ print ("""
 	AZR--> Portugal  Azores
 	MDR--> Portugal  Madeira
 	PRI--> Puerto Rico
-
 	QAT--> Qatar
-
 	REU--> Reunion
 	ROM--> Romania
 	RUS--> Russia
 	RWA--> Rwanda
-
 	SHE--> Saint Helena
 	SKN--> Saint Kitts & Nevis
 	SLU--> Saint Lucia
@@ -251,7 +233,6 @@ print ("""
 	SWE--> Sweden
 	SUI--> Switzerland
 	SYR--> Syria
-
 	TAI--> Taiwan
 	TJK--> Tajikistan
 	TZA--> Tanzania
@@ -265,7 +246,6 @@ print ("""
 	TKM--> Turkmenistan
 	TCA--> Turks & Caicos Islands
 	TUV--> Tuvalu
-
 	UGA--> Uganda
 	UKR--> Ukraine
 	UAE--> United Arab Emirates
@@ -277,21 +257,17 @@ print ("""
 	GUM--> USA  Guam
 	SAA--> USA  American Samoa
 	UZB--> Uzbekistan
-
 	VAN--> Vanuatu
 	VAT--> Vatican
 	VEN--> Venezuela
 	VTN--> Viet Nam
 	VRG--> Virgin Island GB
 	VIR--> Virgin Island US
-
 	WAL--> Wallis & Futuna
 	SAH--> Western Sahara
 	SAM--> Western Samoa
-
 	YEM--> Yemen
 	YUG--> Yugoslavia
-
 	ZAI--> Zaire (Congo Dem.Rep)
 	ZAM--> Zambia
 	ZIM--> Zimbabwe
@@ -305,11 +281,16 @@ print("")
 print("coded by Amir Ali telegram me @Try_excep_t")
 print("")
 try:
+
     code = input("enter code-->")
     site = requests.get('https://top-names.info/names.php?S=M&P='+code)
     soup = BeautifulSoup(site.text, 'html.parser')
-    for data in soup.find_all("nobr"): 
+    for data in soup.find_all("font", {"class":"t12"}): 
         res = data.get_text()
+        file_name2 = "test2.txt"
+        file = open('name'+code+'.text', "a")
+        file.write(res+'\n')
+        file.close()
         print(res)
 except:
     print("Turn on the filter breaker")
